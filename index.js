@@ -1,3 +1,9 @@
+/*
+
+to run the code just enter node index.js <argument>
+
+*/
+
 const expression = process.argv.slice(2);
 
 /*
