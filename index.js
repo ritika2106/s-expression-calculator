@@ -5,7 +5,6 @@ to run the code just enter node index.js <argument>
 */
 
 const expression = process.argv.slice(2);
-
 /*
 
 exit code with exitcode 1 (fatal exception)
@@ -39,6 +38,7 @@ function from the calculatoroptions object
 
 */
 const solveCurrentExpresion = (toSolveSubstr) => {
+
     toSolveSubstr = (toSolveSubstr.replace(/[()]/, '')).split(' ');
     return calculatorOptions[toSolveSubstr[0]](parseInt(toSolveSubstr[1]), parseInt(toSolveSubstr[2]));
 }
@@ -54,9 +54,8 @@ of the opening and its closing bracket
 let nested = true;
 do {
     const innermostOpenBracket = expression[0].lastIndexOf('(')
-    const innermostBracketClosed = expression[0].indexOf(')')
+    const innermostBracketClosed = expression[0].indexOf(')', innermostOpenBracket)
     const currentExpr = expression[0].substring(innermostOpenBracket, innermostBracketClosed + 1);
-
     /*
     IF: if the entered argument is a simple integer and not an expression
     simply print the passed digit and make the flag to continue, false
